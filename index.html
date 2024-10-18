@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おしゃれなヒントページ</title>
+    <style>
+        /* 全体の背景やフォントの設定 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #444;
+        }
+
+        /* ページ全体の中央に配置するためのボックス */
+        .container {
+            background: rgba(255, 192, 203, 0.8); /* ピンクの背景（半透明） */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* タイトル */
+        h1 {
+            text-align: center;
+            font-family: 'Georgia', serif;
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ヒントのアコーディオンボタン */
+        .accordion {
+            background-color: #FFB6C1;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 10px;
+            text-align: left;
+            outline: none;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        /* ボタンのホバー時の色 */
+        .accordion:hover {
+            background-color: #FF69B4;
+        }
+
+        /* ヒントの内容 */
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+            border-radius: 0 0 10px 10px;
+            margin-top: 5px;
+        }
+
+        /* ヒントのアニメーション */
+        .panel.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        /* スライドダウンのアニメーション */
+        @keyframes slideDown {
+            from { max-height: 0; opacity: 0; }
+            to { max-height: 200px; opacity: 1; }
+        }
+
+        /* おしゃれなフォント */
+        .panel p {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            color: #333;
+            margin: 10px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>おしゃれなヒントページ</h1>
+
+        <button class="accordion">ヒント0</button>
+        <div class="panel">
+            <p>さすがに比較的小さい子供でも楽しめるものです。</p>
+        </div>
+
+        <button class="accordion">ヒント1</button>
+        <div class="panel">
+            <p>有名なアニメが関連します。</p>
+        </div>
+
+        <button class="accordion">ヒント2</button>
+        <div class="panel">
+            <p>なぜ100%ではないか、が鍵になります。</p>
+        </div>
+
+        <button class="accordion">ヒント3</button>
+        <div class="panel">
+            <p>「"500%"　アニメ」で検索してみましょう。</p>
+        </div>
+
+        <button class="accordion">ヒント4</button>
+        <div class="panel">
+            <p>五等分の花嫁と関係しています。</p>
+        </div>
+
+        <button class="accordion">ヒント5</button>
+        <div class="panel">
+            <p>形状からして一般的なコミックではなさそうですね。</p>
+        </div>
+
+        <button class="accordion">ヒント6</button>
+        <div class="panel">
+            <p>絵本です。</p>
+        </div>
+    </div>
+
+    <script>
+        // アコーディオンの動作
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                // パネルの開閉
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                    panel.classList.add('show'); // アニメーション追加
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
